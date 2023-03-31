@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Card from "../components/Card";
 import ReactPaginate from "react-paginate";
 import "../css/react-paginate.css";
@@ -9,7 +10,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   let totalPages = Math.ceil(totalPokemons / 20);
   const handlePageClick = (event) => {
-    const display = 12   * event.selected;
+    const display = 12 * event.selected;
     fetchPokemonsByPage(display);
   };
   const fetchPokemons = async () => {
@@ -37,24 +38,31 @@ export default function Home() {
       alert(error);
     }
   };
-
-  console.log(pokemons, "<<");
   useEffect(() => {
     fetchPokemons();
   }, []);
   return (
     <>
-      <div className="d-flex justify-content-center container">
-        {loading && <h1>Loading</h1>}
-        {pokemons.length !== 0 && (
-          <>
-            <div className="d-flex flex-wrap overflow-hidden">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className="container">
+          <Link className="navbar-brand" to="/">POKEMONS</Link>
+        </div>
+      </nav>
+      <div className="container mt-4">
+        <div className="row justify-content-center">
+          {loading && <h1>Loading</h1>}
+          {pokemons.length !== 0 && (
+            <>
               {pokemons.map((pokemon, index) => {
-                return <Card key={index} pokemon={pokemon} />;
+                return (
+                  <div key={index} className="col-md-3 mb-4">
+                    <Card pokemon={pokemon} />
+                  </div>
+                );
               })}
-            </div>
-          </>
-        )}
+            </>
+          )}
+        </div>
       </div>
       <ReactPaginate
         className="react-paginate"
