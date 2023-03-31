@@ -62,7 +62,13 @@ export default function Card({ pokemon }) {
   }, [pokemon]);
   return (
     <>
-      {!thePokemon && <><div className="container-fluid loading"><h1>Loading</h1></div></>}
+      {!thePokemon && (
+        <>
+          <div className="container-fluid loading">
+            <h1>Loading</h1>
+          </div>
+        </>
+      )}
       {thePokemon?.types && (
         <div
           className="card"
@@ -100,14 +106,14 @@ export default function Card({ pokemon }) {
               );
             })}
           </div>
-          <button className="primary-text button-custom">
-            <Link
-              to={`/${pokemonId}`}
-              style={{ textDecoration: "none", color: "white" }}
-            >
+          <Link
+            to={`/${pokemonId}`}
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            <button className="primary-text button-custom" style={{color: '#fff'}}>
               Pokemon Detail
-            </Link>
-          </button>
+            </button>
+          </Link>
         </div>
       )}
     </>
