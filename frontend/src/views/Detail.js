@@ -66,7 +66,8 @@ export default function Detail() {
           </Link>
         </div>
       </nav>
-      <div className="container-fluid" style={{ marginTop: "5px" }}>
+      {!thePokemon && <h1>Loading</h1>}
+      {thePokemon?.types && <div className="container-fluid" style={{ marginTop: "5px" }}>
         <div
           className="row"
           style={{
@@ -190,7 +191,7 @@ export default function Detail() {
             </div>
           </div>
         </div>
-      </div>
+      </div>}
     </>
   );
 }

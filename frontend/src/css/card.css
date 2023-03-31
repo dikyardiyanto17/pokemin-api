@@ -204,3 +204,10 @@ span {
   padding: 2px;
 }
 
+
+.loading {
+  display: flex !important;
+  text-align: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
