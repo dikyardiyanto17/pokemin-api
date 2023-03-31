@@ -62,49 +62,60 @@ export default function Card({ pokemon }) {
   }, [pokemon]);
   return (
     <>
-      <div
-        className="card"
-        style={{ background: getTypeColor(thePokemon?.types?.[0]?.type?.name) }}
-      >
-        <div className="card-img" style={{ backgroundColor: "white" }}>
-          <img
-            src={thePokemon?.sprites?.other?.dream_world.front_default}
-            alt="pokemon"
-            style={{ width: "100px" }}
-          />
-        </div>
-        <div className="desc">
-          <h6 className="primary-text custom-bold">
-            {pokemon.name.toUpperCase()}
-          </h6>
-          {thePokemon?.types?.map((theType, index) => {
-            return (
-              <span
-                key={index}
-                style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.8)",
-                  padding: "2px 6px",
-                  borderRadius: "4px",
-                  marginRight: "4px",
-                  fontSize: "0.8rem",
-                  fontWeight: "bold",
-                  textTransform: "capitalize",
-                }}
-              >
-                {theType?.type?.name}
-              </span>
-            );
-          })}
-        </div>
-        <button className="primary-text button-custom">
+      {!thePokemon && (
+        <>
+          <div className="container-fluid loading">
+            <h1>Loading</h1>
+          </div>
+        </>
+      )}
+      {thePokemon?.types && (
+        <div
+          className="card"
+          style={{
+            background: getTypeColor(thePokemon?.types?.[0]?.type?.name),
+          }}
+        >
+          <div className="card-img" style={{ backgroundColor: "white" }}>
+            <img
+              src={thePokemon?.sprites?.other?.dream_world.front_default}
+              alt="pokemon"
+              style={{ width: "100px" }}
+            />
+          </div>
+          <div className="desc">
+            <h6 className="primary-text custom-bold">
+              {pokemon.name.toUpperCase()}
+            </h6>
+            {thePokemon?.types?.map((theType, index) => {
+              return (
+                <span
+                  key={index}
+                  style={{
+                    backgroundColor: "rgba(255, 255, 255, 0.8)",
+                    padding: "2px 6px",
+                    borderRadius: "4px",
+                    marginRight: "4px",
+                    fontSize: "0.8rem",
+                    fontWeight: "bold",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  {theType?.type?.name}
+                </span>
+              );
+            })}
+          </div>
           <Link
             to={`/${pokemonId}`}
             style={{ textDecoration: "none", color: "white" }}
           >
-            Pokemon Detail
+            <button className="primary-text button-custom" style={{color: '#fff'}}>
+              Pokemon Detail
+            </button>
           </Link>
-        </button>
-      </div>
+        </div>
+      )}
     </>
   );
 }
