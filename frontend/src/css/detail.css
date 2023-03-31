@@ -1,0 +1,146 @@
+progress {
+  height: 20px;
+  width: 200px;
+  background-color: #ddd;
+}
+
+progress::-webkit-progress-value {
+  background-color: green;
+}
+
+body {
+  font-family: "Pokemon Solid", sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container-fluid {
+  margin-top: 50px;
+}
+
+.row {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #ee8130;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  text-transform: capitalize;
+  color: #5f5f5f;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.progress {
+  width: 80%;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #d3d3d3;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  background-color: #ee8130;
+  border-radius: 10px;
+}
+
+.pokemon-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    text-align: center;
+  }
+  
+  .pokemon-details div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .detail-label {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  
+  /* .pokemon-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .stat-label {
+    font-weight: bold;
+    width: 120px;
+  }
+  
+  progress {
+    width: 200px;
+  } */
+  
+  .pokemon-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .stat {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  .stat-label {
+    display: inline-block;
+    width: 150px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  progress {
+    appearance: none;
+    width: 200px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    overflow: hidden;
+  }
+  progress::-webkit-progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+  }
+  progress::-webkit-progress-value {
+    background-image:
+      linear-gradient(to right, #ff7f50, #ff2d55);
+    border-radius: 10px;
+  }
+  span {
+    font-size: 18px;
+    font-weight: bold;
+  }
